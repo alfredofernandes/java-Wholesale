@@ -1,5 +1,8 @@
 package Transactions;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  Transaction.java
  Wholesale
@@ -30,7 +33,7 @@ public class Transaction {
     private boolean payment;
     private double discount;
 
-    private ArrayList<DetailTransaction> details;
+    private ArrayList<DetailTransaction> details = new ArrayList<DetailTransaction>(); ;
 
     public Transaction(TypeTransaction type) {
 
@@ -137,8 +140,8 @@ public class Transaction {
 
         int exist = -1;
 
-        for (int i=0; i < this.details.lenght; i++) {
-            DetailTransaction det = this.details[i];
+        for (int i=0; i < this.details.size(); i++) {
+            DetailTransaction det = this.details.get(i);
             if (det.getDetailID() == detail.getDetailID()) {
                 exist = i;
             }
@@ -151,8 +154,8 @@ public class Transaction {
 
         double total = 0.0;
 
-        for (int i=0; i < this.details.lenght; i++) {
-            DetailTransaction detail = this.details[i];
+        for (int i=0; i < this.details.size(); i++) {
+            DetailTransaction detail = this.details.get(i);
             double price = detail.totalPrice();
             total += price;
         }
@@ -164,8 +167,8 @@ public class Transaction {
 
         double total = 0.0;
 
-        for (int i=0; i < this.details.lenght; i++) {
-            DetailTransaction detail = this.details[i];
+        for (int i=0; i < this.details.size(); i++) {
+            DetailTransaction detail = this.details.get(i);
             double price = detail.totalPriceDiscount();
             total += price;
         }

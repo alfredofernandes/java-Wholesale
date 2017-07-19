@@ -1,5 +1,7 @@
 package People;
 
+import java.util.ArrayList;
+
 /**
  Buyer.java
  Wholesale
@@ -9,7 +11,7 @@ package People;
 
 public class Buyer
 {
-    static int numID;
+    static int numID = 0;
     private int buyerId;
     private String name;
     private ArrayList<Address> address;
@@ -50,10 +52,11 @@ public class Buyer
 
     public double checkProduct(ArrayList<Product> product)
     {
-//        for (int i = 0; i < product.size(); i++)
-//        {
-//
-//        }
+        for (int i = 0; i < product.size(); i++)
+        {
+            Product p = product.get(i);
+
+        }
 //        for dictionary in self.products
 //        {
 //            let prod = dictionary["product"] as! Product
@@ -63,7 +66,7 @@ public class Buyer
 //                return price
 //            }
 //        }
-        return 0.0
+        return 0.0;
     }
 
     public boolean getActive() {
@@ -72,5 +75,8 @@ public class Buyer
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    private class Products {
     }
 }
