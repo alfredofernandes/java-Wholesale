@@ -1,12 +1,12 @@
-package Transactions;
-import Product.Product;
-
 /**
  DetailTransaction.java
  Wholesale
 
  Copyright © 2017 Lambton. All rights reserved.
-*/
+ */
+
+package Transactions;
+import Product.Product;
 
 public class DetailTransaction {
 
