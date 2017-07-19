@@ -1,5 +1,7 @@
 package Transactions;
 
+import People.Customer;
+
 /**
  Sale.java
  Wholesale
@@ -12,9 +14,7 @@ public class Sale extends Transaction {
     private Customer customer;
 
     public Sale(Customer customer) {
+        super(TypeTransaction.SALE);
         this.customer = customer;
-        super(Transaction.TypeTransaction.SALE);
     }
-
-    public
 }
