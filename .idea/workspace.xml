@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c393e965-3024-475b-aab7-f4bc893595a6" name="Default" comment="- product package headers">
+    <list default="true" id="c393e965-3024-475b-aab7-f4bc893595a6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/People/Buyer$Products.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/People/Buyer$Products.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/People/Buyer.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/People/Buyer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Product/Stock.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Product/Stock.class" />
@@ -479,7 +479,7 @@
       <option name="presentableId" value="Default" />
       <updated>1500499020369</updated>
       <workItem from="1500499023011" duration="149000" />
-      <workItem from="1500499570115" duration="1978000" />
+      <workItem from="1500499570115" duration="1989000" />
     </task>
     <task id="LOCAL-00001" summary="- product package done">
       <created>1500499965598</created>
@@ -502,11 +502,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500501143660</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- product package headers">
+      <created>1500501680706</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1500501680706</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2127000" />
+    <option name="totallyTimeSpent" value="2138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
