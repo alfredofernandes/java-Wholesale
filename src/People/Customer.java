@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Customer
 {
-    static int numID;
+    static int numID = 0;
     private int customerId;
     private String name;
     private ArrayList<Address> address;

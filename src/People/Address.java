@@ -9,7 +9,7 @@ package People;
 
 public class Address
 {
-    static int numID;
+    static int numID = 0;
     private int addressId;
     private String street;
     private String city;
