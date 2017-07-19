@@ -1,3 +1,10 @@
+/**
+ Stock.java
+ Wholesale
+
+ Copyright © 2017 Lambton. All rights reserved.
+ */
+
 package Product;
 
 public class Stock {

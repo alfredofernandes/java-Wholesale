@@ -1,14 +1,16 @@
-package Transactions;
-
-import java.util.ArrayList;
-import java.util.Date;
-
 /**
  Transaction.java
  Wholesale
 
  Copyright © 2017 Lambton. All rights reserved.
  */
+
+package Transactions;
+
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Transaction {
 
@@ -174,6 +176,12 @@ public class Transaction {
         }
 
         return total;
+    }
+
+    public void generateShippedDate() throws ParseException {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        this.shippedDate = dateFormat.parse("21/12/2012");
     }
 
 
