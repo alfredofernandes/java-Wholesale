@@ -1,5 +1,7 @@
 package People;
 
+import java.util.ArrayList;
+
 /**
  Customer.java
  Wholesale
