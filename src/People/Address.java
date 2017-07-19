@@ -1,11 +1,11 @@
-package People;
-
 /**
  Address.java
  Wholesale
 
  Copyright © 2017 Lambton. All rights reserved.
  */
+
+package People;
 
 public class Address
 {

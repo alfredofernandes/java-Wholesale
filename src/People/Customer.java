@@ -1,13 +1,13 @@
-package People;
-
-import java.util.ArrayList;
-
 /**
  Customer.java
  Wholesale
 
  Copyright © 2017 Lambton. All rights reserved.
  */
+
+package People;
+
+import java.util.ArrayList;
 
 public class Customer
 {
