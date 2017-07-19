@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Buyer
 {
-    static int numID;
+    static int numID = 0;
     private int buyerId;
     private String name;
     private ArrayList<Address> address;
