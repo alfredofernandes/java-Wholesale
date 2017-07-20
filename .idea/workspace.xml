@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c393e965-3024-475b-aab7-f4bc893595a6" name="Default" comment="- product package headers">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Service/CategoryManager.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Service/LoadFiles.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Service/ManagerCategory.java" afterPath="" />
-    </list>
+    <list default="true" id="c393e965-3024-475b-aab7-f4bc893595a6" name="Default" comment="- product package headers" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,15 +32,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CategoryManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/CategoryManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="281">
+              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#685#695#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customer.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/customer.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,6 +92,7 @@
         <option value="$PROJECT_DIR$/src/Product/Category.java" />
         <option value="$PROJECT_DIR$/src/Service/ManagerCategory.java" />
         <option value="$PROJECT_DIR$/src/Service/CategoryManager.java" />
+        <option value="$PROJECT_DIR$/data/customer.txt" />
       </list>
     </option>
   </component>
@@ -307,7 +314,7 @@
       <updated>1500499020369</updated>
       <workItem from="1500499023011" duration="149000" />
       <workItem from="1500499570115" duration="2086000" />
-      <workItem from="1500557738641" duration="3964000" />
+      <workItem from="1500557738641" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="- product package done">
       <created>1500499965598</created>
@@ -348,7 +355,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6852000" />
+    <option name="totallyTimeSpent" value="7753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="980" extended-state="0" />
@@ -911,12 +918,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/CategoryManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="281">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#685#695#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/customer.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
