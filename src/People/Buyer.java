@@ -52,6 +52,14 @@ public class Buyer
         this.address = address;
     }
 
+    public HashMap<String, Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(HashMap<String, Product> products) {
+        this.products = products;
+    }
+
     public double checkProduct(Product product)
     {
         Iterator<String> keySetIterator = products.keySet().iterator();
