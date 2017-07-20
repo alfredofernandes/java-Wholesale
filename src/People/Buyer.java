@@ -9,6 +9,8 @@ package People;
 
 import Product.Product;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Buyer
 {
@@ -16,11 +18,10 @@ public class Buyer
     private int buyerId;
     private String name;
     private ArrayList<Address> address;
-    private ArrayList<Products> products;
+    private HashMap<String, Product> products = new HashMap<String, Product>();
     private boolean active;
 
-
-    public Buyer(String name, ArrayList<Address> address, ArrayList<Products> products)
+    public Buyer(String name, ArrayList<Address> address, HashMap<String, Product> products)
     {
         Buyer.numID += 1;
 
@@ -51,28 +52,18 @@ public class Buyer
         this.address = address;
     }
 
-    public double checkProduct(ArrayList<Product> product)
+    public double checkProduct(Product product)
     {
-//        for (Product dictionary: products)
-//        {
-//            String prod = dictionary.getName();
-//        }
-//
-//        for (int i = 0; i < products.size(); i++)
-//        {
-//            Products dictionary = products.get(i);
-//            Product prod = product.get(i);
-//        }
+        Iterator<String> keySetIterator = products.keySet().iterator();
 
-//        for dictionary in self.products
-//        {
-//            let prod = dictionary["product"] as! Product
-//            let price = dictionary["price"] as! Double
-//
-//            if prod.getProductId() == product.getProductId() {
-//                return price
-//            }
-//        }
+        while(keySetIterator.hasNext()) {
+            String key = keySetIterator.next();
+            Product prod = products.get(key);
+
+            if (prod.getProductId() == product.getProductId()) {
+                return Double.parseDouble(key);
+            }
+        }
 
         return 0.0;
     }
