@@ -15,6 +15,7 @@ public class Category {
 
     public Category(String name) {
         Category.numID += 1;
+
         this.categoryId = Category.numID;
         this.name = name;
     }
