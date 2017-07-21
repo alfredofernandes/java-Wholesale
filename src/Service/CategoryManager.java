@@ -1,6 +1,6 @@
 package Service;
 
-import Product.Category;
+import Products.Category;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class CategoryManager {
 
-    final private String FILENAME = "category.txt";
+    final private String FILENAME = "data/category.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;

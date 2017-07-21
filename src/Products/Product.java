@@ -1,11 +1,11 @@
 /**
- Product.java
+ Products.java
  Wholesale
 
  Copyright © 2017 Lambton. All rights reserved.
  */
 
-package Product;
+package Products;
 
 public class Product {
 

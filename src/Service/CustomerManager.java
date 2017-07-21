@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class CustomerManager {
 
-    final private String FILENAME = "customer.txt";
+    final private String FILENAME = "data/customer.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;

@@ -1,7 +1,7 @@
 package Service;
 
-import Product.Product;
-import Product.Stock;
+import Products.Product;
+import Products.Stock;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class StockManager {
 
-    final private String FILENAME = "stock.txt";
+    final private String FILENAME = "data/stock.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;

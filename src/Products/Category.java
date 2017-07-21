@@ -5,7 +5,7 @@
  Copyright © 2017 Lambton. All rights reserved.
  */
 
-package Product;
+package Products;
 
 public class Category {
 

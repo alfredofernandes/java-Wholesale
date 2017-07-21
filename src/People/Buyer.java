@@ -7,7 +7,7 @@
 
 package People;
 
-import Product.Product;
+import Products.Product;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
