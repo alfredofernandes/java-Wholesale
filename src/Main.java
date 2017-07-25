@@ -20,33 +20,7 @@ public class Main {
     }
 
     private static void loadData(){
-
-        //"--------- ORDER SALE 1 --------- "
-        int saleOrder1 = wholesale.orderSale("Alfredo");
         
-
-        /*
-        * print("--------- ORDER SALE 1 --------- ")
-var saleOrder1 = wholesale.orderSale(customer: customer1)
-wholesale.addProductInOrderSale(product: product1, quantity: 5, orderNumber: saleOrder1)
-wholesale.finishOrderSale(orderNumber: saleOrder1)
-
-print("\n--------- ORDER SALE 2 --------- ")
-var saleOrder2 = wholesale.orderSale(customer: customer2)
-wholesale.addProductInOrderSale(product: product2, quantity: 6, orderNumber: saleOrder2)
-wholesale.addProductInOrderSale(product: product3, quantity: 8, orderNumber: saleOrder2)
-wholesale.finishOrderSale(orderNumber: saleOrder2)
-wholesale.payOrderSale(orderNumber: saleOrder2)
-
-print("\n--------- ORDER SALE 3 --------- ")
-var saleOrder3 = wholesale.orderSale(customer: customer3)
-wholesale.addProductInOrderSale(product: product2, quantity: 7, orderNumber: saleOrder3)
-wholesale.addProductInOrderSale(product: product3, quantity: 3, orderNumber: saleOrder3)
-wholesale.addProductInOrderSale(product: product4, quantity: 1, orderNumber: saleOrder3)
-wholesale.addProductInOrderSale(product: product5, quantity: 4, orderNumber: saleOrder3)
-wholesale.finishOrderSale(orderNumber: saleOrder3)
-
-        * */
 
     }
 
