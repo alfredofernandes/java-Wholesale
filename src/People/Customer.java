@@ -44,6 +44,10 @@ public class Customer
         return address;
     }
 
+    public Address getLastAddress() {
+        return address.get(address.size() - 1);
+    }
+
     public void setAddress(ArrayList<Address> address) {
         this.address = address;
     }

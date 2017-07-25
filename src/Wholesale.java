@@ -74,6 +74,10 @@ public class Wholesale {
         return  null;
     }
 
+    public ArrayList<Sale> getHistorySale() {
+        return historySale;
+    }
+
     public void addProductInOrderSale(Product product, int quantity, int orderNumber) {
 
         Sale sale = getOrderSale(orderNumber);
@@ -165,6 +169,10 @@ public class Wholesale {
         }
     }
 
+    public ArrayList<Purchase> getHistoryPurchase() {
+        return historyPurchase;
+    }
+
     // STOCK
 
     private Stock getProductInStock(Product product) {
@@ -235,6 +243,10 @@ public class Wholesale {
 
     public ArrayList<Stock> getStocks() {
         return stocks;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
 
     // GENERATE DISCOUNT
