@@ -20,7 +20,7 @@ public class Main {
     }
 
     private static void loadData(){
-        
+
 
     }
 
@@ -135,15 +135,22 @@ public class Main {
 
                 String inputQuantity = JOptionPane.showInputDialog("Please, enter the quantity:");
 
-                addProductInOrder(product.getProductId(), Integer.parseInt(inputQuantity), orderSale);
-
-                int yesNo = showAlert("Do you want add another product?");
-                if (yesNo == 0) {
+                if (inputQuantity == null) {
                     selectProductsBuy(orderSale);
 
                 } else {
-                    finishOrder(orderSale);
+
+                    addProductInOrder(product.getProductId(), Integer.parseInt(inputQuantity), orderSale);
+
+                    int yesNo = showAlert("Do you want add another product?");
+                    if (yesNo == 0) {
+                        selectProductsBuy(orderSale);
+
+                    } else {
+                        finishOrder(orderSale);
+                    }
                 }
+
 
             }
 

@@ -3,9 +3,7 @@ package Service;
 import People.Address;
 import People.Customer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +12,7 @@ public class CustomerManager {
     final private String FILENAME = "data/customer.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     private ArrayList<Address> addresses;
 
@@ -61,19 +59,16 @@ public class CustomerManager {
         return null;
     }
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         ArrayList<Address> listAddress = customer.getAddress();
         Address address = listAddress.get(0);
         String data = customer.getCustomerId() +"/"+ customer.getName() +"/"+ address.getAddressId();
+        data += "\n";
 
-        this.writeFile.println(data);
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 }

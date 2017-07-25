@@ -3,9 +3,7 @@ package Service;
 import Products.Product;
 import Products.Stock;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +12,7 @@ public class StockManager {
     final private String FILENAME = "data/stock.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     private ArrayList<Product> products;
 
@@ -58,18 +56,15 @@ public class StockManager {
         return null;
     }
 
-    public void addStock(Stock stock) {
+    public void addStock(Stock stock) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         Product product = stock.getProduct();
         String data = stock.getStockId() +"/"+ product.getProductId() +"/"+ stock.getQuantity() +"/" + stock.getPriceEach();
+        data += "\n";
 
-        this.writeFile.println(data);
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 }

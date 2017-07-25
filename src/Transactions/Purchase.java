@@ -52,6 +52,12 @@ public class Purchase extends Transaction {
             DetailTransaction detail = new DetailTransaction(product, quantity, priceEach, 0.0);
             this.addDetail(detail);
         }
+
+        /*try {
+            finishOrder();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
     }
 
     public void finishOrder() throws ParseException {

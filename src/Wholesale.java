@@ -13,11 +13,10 @@ import Service.LoadManager;
 import Transactions.DetailTransaction;
 import Transactions.Purchase;
 import Transactions.Sale;
-import Transactions.Transaction;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 
 public class Wholesale {
 
@@ -37,6 +36,9 @@ public class Wholesale {
         stocks = loadData.getStocks();
         buyers = loadData.getBuyers();
         customers = loadData.getCustomers();
+
+        historySale = loadData.getHistorySale();
+        historyPurchase = loadData.getHistoryPurchase();
     }
 
     // ORDER SALE
@@ -127,6 +129,13 @@ public class Wholesale {
             finishOrderSale(orderNumber);
             sale.payOrder();
             // update sale in history
+
+            try {
+                loadData.sale.addTransactionSale(sale);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -144,6 +153,14 @@ public class Wholesale {
 
                 updateStock(product, quantity, true);
                 historyPurchase.add(purchase);
+
+                try {
+                    loadData.purchase.addTransactionPurchase(purchase);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                break;
             }
         }
     }

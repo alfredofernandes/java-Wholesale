@@ -2,9 +2,7 @@ package Service;
 
 import Products.Category;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +11,7 @@ public class CategoryManager {
     final private String FILENAME = "data/category.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     public CategoryManager() {
         this.file = new File(FILENAME);
@@ -42,17 +40,14 @@ public class CategoryManager {
         return categories;
     }
 
-    public void addCategory(Category category) {
+    public void addCategory(Category category) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         String data = category.getCategoryId() + "/" + category.getName();
+        data += "\n";
 
-        this.writeFile.println(data);
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 }
