@@ -4,9 +4,7 @@ import People.Address;
 import People.Buyer;
 import Products.Product;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,7 +15,7 @@ public class BuyerManager {
     final private String FILENAME = "data/buyer.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     private ArrayList<Address> addresses;
     private ArrayList<Product> products;
@@ -41,7 +39,10 @@ public class BuyerManager {
         while(this.readFile.hasNext())
         {
             String line = this.readFile.nextLine();
-            String[] column = line.split("/");
+            String[] infos = line.split("-");
+
+            String[] column = infos[0].split("/");
+            String[] productsBuyer = infos[1].split(";");
 
             Address address = checkAddress(Integer.parseInt(column[2]));
             ArrayList<Address> listAddress = new ArrayList<Address>();
@@ -49,11 +50,12 @@ public class BuyerManager {
 
             HashMap<String, Product> listProduct = new HashMap<String, Product>();
 
-            Product prod1 = checkProduct(Integer.parseInt(column[3]));
-            listProduct.put(column[4], prod1);
+            for (int i=0; i < productsBuyer.length; i++) {
 
-            Product prod2 = checkProduct(Integer.parseInt(column[5]));
-            listProduct.put(column[6], prod2);
+                String[] product = productsBuyer[i].split("/");
+                Product prod = checkProduct(Integer.parseInt(product[0]));
+                listProduct.put(product[1], prod);
+            }
 
             Buyer buyer = new Buyer(column[1], listAddress, listProduct);
             buyers.add(buyer);
@@ -87,13 +89,9 @@ public class BuyerManager {
         return null;
     }
 
-    public void addBuyer(Buyer buyer) {
+    public void addBuyer(Buyer buyer) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         ArrayList<Address> listAddress = buyer.getAddress();
         Address address = listAddress.get(0);
@@ -101,16 +99,18 @@ public class BuyerManager {
         HashMap<String, Product> listProduct = buyer.getProducts();
         Iterator<String> keySetIterator = listProduct.keySet().iterator();
 
-        String data = buyer.getBuyerId() +"/"+ buyer.getName() +"/"+ address.getAddressId();
+        String data = buyer.getBuyerId() +"/"+ buyer.getName() +"/"+ address.getAddressId() +"-";
 
         while(keySetIterator.hasNext()) {
             String price = keySetIterator.next();
             Product prod = listProduct.get(price);
 
-            data += "/" + prod.getProductId() + "/" + price;
+            data += prod.getProductId() + "/" + price + ";";
         }
 
-        this.writeFile.println(data);
+        data += "\n";
+
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 

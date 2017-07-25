@@ -89,6 +89,14 @@ public class Transaction {
         return details;
     }
 
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
     public void setRequiredDate(Date requiredDate) {
         this.requiredDate = requiredDate;
     }
@@ -107,6 +115,14 @@ public class Transaction {
 
     public void setPayment(boolean payment) {
         this.payment = payment;
+    }
+
+    public void setDetails(ArrayList<DetailTransaction> details) {
+        this.details = details;
+    }
+
+    public double getDiscount() {
+        return discount;
     }
 
     //Methods

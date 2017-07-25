@@ -3,9 +3,7 @@ package Service;
 import Products.Category;
 import Products.Product;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +12,7 @@ public class ProductManager {
     final private String FILENAME = "data/product.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     private ArrayList<Category> categories;
 
@@ -58,18 +56,15 @@ public class ProductManager {
         return null;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(Product product) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         Category category = product.getCategory();
         String data = product.getProductId() +"/"+ product.getName() +"/"+ product.getDescription() +"/" + category.getCategoryId();
+        data += "\n";
 
-        this.writeFile.println(data);
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 

@@ -2,9 +2,7 @@ package Service;
 
 import People.Address;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +11,7 @@ public class AddressManager {
     final private String FILENAME = "data/address.txt";
     private File file;
     private Scanner readFile;
-    private PrintWriter writeFile;
+    private FileWriter writeFile;
 
     public AddressManager() {
         this.file = new File(FILENAME);
@@ -42,17 +40,14 @@ public class AddressManager {
         return addresses;
     }
 
-    public void addAddress(Address address) {
+    public void addAddress(Address address) throws IOException {
 
-        try {
-            this.writeFile = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.writeFile = new FileWriter(file);
 
         String data = address.getAddressId() + "/" + address.getStreet() + "/" + address.getCity() + "/" + address.getProvince() + "/" + address.getZipCode() + "/" + address.getCountry();
+        data += "\n";
 
-        this.writeFile.println(data);
+        this.writeFile.write(data);
         this.writeFile.close();
     }
 
