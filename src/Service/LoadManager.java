@@ -3,9 +3,15 @@ package Service;
 import People.Address;
 import People.Buyer;
 import People.Customer;
+<<<<<<< HEAD
 import Product.Category;
 import Product.Product;
 import Product.Stock;
+=======
+import Products.Category;
+import Products.Product;
+import Products.Stock;
+>>>>>>> 23b60dd712f381fcbf9b2365b14e96454912ef4b
 
 import java.util.ArrayList;
 
@@ -40,4 +46,30 @@ public class LoadManager {
 
     }
 
+<<<<<<< HEAD
+=======
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public ArrayList<Stock> getStocks() {
+        return stocks;
+    }
+
+    public ArrayList<Address> getAddresses() {
+        return addresses;
+    }
+
+    public ArrayList<Buyer> getBuyers() {
+        return buyers;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+>>>>>>> 23b60dd712f381fcbf9b2365b14e96454912ef4b
 }

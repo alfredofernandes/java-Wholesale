@@ -8,7 +8,7 @@
 package Transactions;
 
 import People.Customer;
-import Product.Product;
+import Products.Product;
 
 import java.text.ParseException;
 import java.util.ArrayList;

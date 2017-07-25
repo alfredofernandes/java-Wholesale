@@ -2,7 +2,7 @@ package Service;
 
 import People.Address;
 import People.Buyer;
-import Product.Product;
+import Products.Product;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class BuyerManager {
 
-    final private String FILENAME = "buyer.txt";
+    final private String FILENAME = "data/buyer.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;

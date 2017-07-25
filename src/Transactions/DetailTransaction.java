@@ -6,7 +6,7 @@
  */
 
 package Transactions;
-import Product.Product;
+import Products.Product;
 
 public class DetailTransaction {
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class AddressManager {
 
-    final private String FILENAME = "address.txt";
+    final private String FILENAME = "data/address.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;

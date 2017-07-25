@@ -1,7 +1,7 @@
 package Service;
 
-import Product.Category;
-import Product.Product;
+import Products.Category;
+import Products.Product;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ProductManager {
 
-    final private String FILENAME = "product.txt";
+    final private String FILENAME = "data/product.txt";
     private File file;
     private Scanner readFile;
     private PrintWriter writeFile;
