@@ -63,7 +63,7 @@ public class SaleHistoryManager {
 
             sale.setType(Transaction.TypeTransaction.SALE);
 
-            sale.setPayment(Boolean.getBoolean(column[7]));
+            sale.setPayment(Boolean.valueOf(column[7]));
             sale.setDiscount(Double.parseDouble(column[8]));
 
             ArrayList<DetailTransaction> detailsSale = new ArrayList<>();

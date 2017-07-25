@@ -1,11 +1,17 @@
+import People.Address;
+import People.Customer;
 import Products.Product;
 import Products.Stock;
 import Transactions.DetailTransaction;
 import Transactions.Sale;
+import Transactions.Transaction;
 import com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter;
 
 import javax.swing.JOptionPane;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Main {
 
@@ -48,7 +54,6 @@ public class Main {
                 loginScreen();
             }
         }
-
     }
 
     // MAIN MENU
@@ -150,12 +155,8 @@ public class Main {
                         finishOrder(orderSale);
                     }
                 }
-
-
             }
-
         }
-
     }
 
     private static void addProductInOrder(int productId, int quantity, int orderSale) {
@@ -224,7 +225,6 @@ public class Main {
                     break;
             }
         }
-
     }
 
     // 2. REPORTS
@@ -269,49 +269,240 @@ public class Main {
                     break;
             }
         }
-
     }
 
     // DEFAULTER LIST OF CUSTOMERS WHOSE HAS NOT PAID THEIR PENDING AMOUNT
     private static void report1() {
 
-        System.out.println("This is the report 1.");
-
+        reportListSalePaidAndNot();
     }
 
     // LIST OF PAYMENT PAID OR PENDING
     private static void report2() {
 
-        System.out.println("This is the report 2.");
+        reportSaleListOfCustomersPendingAmount();
 
     }
 
     // LIST OF PAYMENT AND QUANTITY OF ORDERS PAID
     private static void report3() {
 
-        System.out.println("This is the report 3.");
+        reportSaleListOfCustomersQuantityTotalAmountPaid();
 
     }
 
     // PRODUCTS SHIPPED IN 2017
     private static void report4() {
 
-        System.out.println("This is the report 4.");
+        reportProductsDeliveryInYear("2017");
 
     }
 
     //PRODUCT QUANTITY IN STOCK
     private static void report5() {
 
-        System.out.println("This is the report 5.");
+        reportProductQuantityInStock();
 
     }
 
     // SALES BY DIFFERENT CITIES
     private static void report6() {
 
-        System.out.println("This is the report 6.");
+        reportSalesByCities();
 
+    }
+
+    private static void reportListSalePaidAndNot() {
+
+        String showReport = "WHOLESALE - Report 1: Defaulters list of Customers whose has not paid their pending amount: \n\n";
+
+        ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        for (Sale historySale: historySales)
+        {
+            String orderId = String.valueOf(historySale.getOrderID());
+
+            Customer customer = historySale.getCustomer();
+            String customerName = customer.getName();
+
+            Double amount = historySale.totalPayment();
+            String payment = historySale.isPayment() ? "PAID" : "NOT PAID";
+
+            showReport += orderId +" - "+ customerName +" - "+ amount +" - "+ payment + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
+    }
+
+    private static void reportSaleListOfCustomersPendingAmount() {
+
+        String showReport = "WHOLESALE - Report 2: List of Payment Paid or Pending: \n\n";
+
+        int total = 0;
+
+        ArrayList<Customer> customers = wholesale.getCustomers();
+        ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        for (Customer cust: customers)
+        {
+            String customerName = cust.getName();
+            double totalCustomer = 0.0;
+
+            for (Sale historySale: historySales)
+            {
+                Transaction.StatusTransaction status = Transaction.StatusTransaction.CLOSED;
+                if ((historySale.getStatus().compareTo(status) == 0) && (historySale.isPayment() == false)) {
+                    Customer customer = historySale.getCustomer();
+
+                    if (cust.getCustomerId() == customer.getCustomerId()) {
+                        totalCustomer += historySale.totalPayment();
+                    }
+                    total += 1;
+                }
+            }
+
+            if (totalCustomer > 0) {
+
+                String customerId = String.valueOf(cust.getCustomerId());
+                showReport += customerId +" - "+ customerName +" - "+ totalCustomer + "\n";
+            }
+        }
+
+        if (total == 0) {
+            showReport += "All payments are paid!";
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
+    }
+
+    private static void reportSaleListOfCustomersQuantityTotalAmountPaid() {
+
+        String showReport = "WHOLESALE - Report 3: List of Payment and Quantity of Orders Paid: \n\n";
+
+        int total = 0;
+
+        ArrayList<Customer> customers = wholesale.getCustomers();
+        ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        for (Customer cust: customers) {
+            String customerName = cust.getName();
+            int customerOrderQty = 0;
+            double customerTotalAmount = 0.0;
+
+            for (Sale historySale: historySales)
+            {
+                if (historySale.isPayment() == true) {
+                    Customer customer = historySale.getCustomer();
+
+                    if (cust.getCustomerId() == customer.getCustomerId()) {
+                        customerOrderQty += 1;
+                        customerTotalAmount += historySale.totalPayment();
+                    }
+                    total += 1;
+                }
+            }
+
+            if (customerTotalAmount > 0) {
+
+                String customerId = String.valueOf(cust.getCustomerId());
+                String orderQty = String.valueOf(customerOrderQty);
+
+                showReport += customerId +" - "+ customerName +" - "+ orderQty + " - " + customerTotalAmount + "\n";
+            }
+        }
+
+        if (total == 0) {
+            showReport += "No orders with payments!";
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
+    }
+
+    private static void reportProductsDeliveryInYear(String year) {
+
+        String showReport = "WHOLESALE - Report 4: Product shipped in 2017: \n\n";
+
+        ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        for (Sale historySale: historySales)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String shippedDate = dateFormat.format(historySale.getShippedDate());
+            int orderId = historySale.getOrderID();
+
+            SimpleDateFormat yearFormatter = new SimpleDateFormat("yyyy");
+            String yearShippedDate = yearFormatter.format(historySale.getShippedDate());
+
+            Transaction.StatusTransaction status = Transaction.StatusTransaction.DELIVERED;
+
+            if ((historySale.getStatus().compareTo(status) == 0) && (yearShippedDate.compareTo(year) == 0)) {
+
+                for (DetailTransaction detail: historySale.getDetails())
+                {
+                    Product product = detail.getProduct();
+                    String productName = product.getName();
+
+                    showReport += orderId +" - "+ String.valueOf(shippedDate) +" - "+ productName + "\n";
+                }
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
+    }
+
+    private static void reportProductQuantityInStock() {
+
+        String showReport = "WHOLESALE - Report 5: Product quantity in Stock: \n\n";
+
+        ArrayList<Stock> stocks = wholesale.getStocks();
+
+        for (Stock stock: stocks)
+        {
+            Product product = stock.getProduct();
+            int quantity = stock.getQuantity();
+            String productId = String.valueOf(product.getProductId());
+            String productName = product.getName();
+
+            showReport += productId +" - "+ productName + " - " + quantity + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
+    }
+
+    private static void reportSalesByCities() {
+
+        String showReport = "WHOLESALE - Report 6: Sales by different cities: \n\n";
+        showReport += "CITY                                         TOTAL $\n";
+
+        String[] cities = {"Toronto", "Quebec", "Vancouver", "Halifax", "Winnipeg"};
+        ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        for (String city:cities)
+        {
+            String cityName = city;
+            Double totalPayment = 0.0;
+
+            for (Sale historySale: historySales)
+            {
+                Customer customer = historySale.getCustomer();
+                Address address = customer.getLastAddress();
+                String addressCity = address.getCity();
+
+                if (cityName.compareTo(addressCity) == 0) {
+                    totalPayment += historySale.totalPayment();
+                }
+            }
+
+            showReport += cityName + " ................................... " + totalPayment + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, showReport);
+        mainMenu();
     }
 
     // ALERT: MAKE SURE USER WANT TO QUIT THE PROGRAM
