@@ -1,6 +1,11 @@
+import Products.Product;
+import Products.Stock;
+import Transactions.DetailTransaction;
+import Transactions.Sale;
 import com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -9,7 +14,40 @@ public class Main {
 
     public static void main(String[] args) {
         wholesale = new Wholesale();
+
+        loadData();
         loginScreen();
+    }
+
+    private static void loadData(){
+
+        //"--------- ORDER SALE 1 --------- "
+        int saleOrder1 = wholesale.orderSale("Alfredo");
+        
+
+        /*
+        * print("--------- ORDER SALE 1 --------- ")
+var saleOrder1 = wholesale.orderSale(customer: customer1)
+wholesale.addProductInOrderSale(product: product1, quantity: 5, orderNumber: saleOrder1)
+wholesale.finishOrderSale(orderNumber: saleOrder1)
+
+print("\n--------- ORDER SALE 2 --------- ")
+var saleOrder2 = wholesale.orderSale(customer: customer2)
+wholesale.addProductInOrderSale(product: product2, quantity: 6, orderNumber: saleOrder2)
+wholesale.addProductInOrderSale(product: product3, quantity: 8, orderNumber: saleOrder2)
+wholesale.finishOrderSale(orderNumber: saleOrder2)
+wholesale.payOrderSale(orderNumber: saleOrder2)
+
+print("\n--------- ORDER SALE 3 --------- ")
+var saleOrder3 = wholesale.orderSale(customer: customer3)
+wholesale.addProductInOrderSale(product: product2, quantity: 7, orderNumber: saleOrder3)
+wholesale.addProductInOrderSale(product: product3, quantity: 3, orderNumber: saleOrder3)
+wholesale.addProductInOrderSale(product: product4, quantity: 1, orderNumber: saleOrder3)
+wholesale.addProductInOrderSale(product: product5, quantity: 4, orderNumber: saleOrder3)
+wholesale.finishOrderSale(orderNumber: saleOrder3)
+
+        * */
+
     }
 
     // LOGIN SCREEN
@@ -73,6 +111,138 @@ public class Main {
 
     // 1. BUY
     private static void startBuy() {
+
+        int orderSale = wholesale.orderSale(currentUser);
+        selectProductsBuy(orderSale);
+
+    }
+
+    private static void selectProductsBuy(int orderSale){
+
+        ArrayList<Stock> stocks = wholesale.getStocks();
+        String showProduct = "WHOLESALE BUY \n\nSelect one product: ";
+
+        for (int i=0; i < stocks.size(); i++){
+
+            Stock stock = stocks.get(i);
+            String name = stock.getProduct().getName();
+            String price = String.valueOf(stock.getPriceEach());
+
+            showProduct += "\n   " + (i+1) + " - " + name + " - $" + price;
+        }
+
+        showProduct += "\n\n 0 - Finish order";
+
+        String inputProducts = JOptionPane.showInputDialog(showProduct);
+
+        if (inputProducts == null) {
+
+            int yesNo = showAlert("Do you want to cancel this order?");
+            if (yesNo == 0) {
+
+                wholesale.removeOrder(orderSale);
+                JOptionPane.showMessageDialog(null, "Your order has been cancelled.");
+                mainMenu();
+
+            } else {
+                selectProductsBuy(orderSale);
+            }
+
+        } else {
+
+            if (inputProducts.compareTo("0") == 0) {
+                finishOrder(orderSale);
+
+            } else {
+
+                int positionProduct = Integer.parseInt(inputProducts) -1;
+                Stock stock = stocks.get(positionProduct);
+                Product product = stock.getProduct();
+
+                String inputQuantity = JOptionPane.showInputDialog("Please, enter the quantity:");
+
+                addProductInOrder(product.getProductId(), Integer.parseInt(inputQuantity), orderSale);
+
+                int yesNo = showAlert("Do you want add another product?");
+                if (yesNo == 0) {
+                    selectProductsBuy(orderSale);
+
+                } else {
+                    finishOrder(orderSale);
+                }
+
+            }
+
+        }
+
+    }
+
+    private static void addProductInOrder(int productId, int quantity, int orderSale) {
+
+        ArrayList<Stock> stocks = wholesale.getStocks();
+
+        for (Stock stock:stocks) {
+            Product product = stock.getProduct();
+            if (product.getProductId() == productId) {
+                wholesale.addProductInOrderSale(product, quantity, orderSale);
+            }
+        }
+    }
+
+    private static void finishOrder(int orderSale) {
+
+        String showOrder = "WHOLESALE - YOUR ORDER \n\n";
+
+        Sale sale = wholesale.getOrderSale(orderSale);
+        for (DetailTransaction detail: sale.getDetails()) {
+
+            Product product = detail.getProduct();
+            showOrder += " - " + detail.getQuantity() + " " + product.getName() + " $" + detail.getPriceEach() + "\n";
+        }
+
+        showOrder += "\nTotal: $" + sale.totalPayment();
+        showOrder += "\nTotal with discount: $" + sale.totalPaymentWithDiscount() + "\n\n";
+
+        showOrder += "Please, choose one of the following options:\n";
+        showOrder += "1. Pay order \n";
+        showOrder += "2. Add another item \n";
+        showOrder += "3. Cancel order \n";
+
+        String inputProducts = JOptionPane.showInputDialog(showOrder);
+
+        if (inputProducts == null) {
+
+            int yesNo = showAlert("Do you want cancel this order?");
+            if (yesNo == 0) {
+                mainMenu();
+            } else {
+                finishOrder(orderSale);
+            }
+
+        } else {
+
+            switch (inputProducts) {
+                case "1":
+                    wholesale.payOrderSale(orderSale);
+                    JOptionPane.showMessageDialog(null, "Your order has been paid.");
+                    mainMenu();
+
+                    break;
+                case "2":
+                    selectProductsBuy(orderSale);
+                    break;
+                case "3":
+
+                    int yesNo = showAlert("Do you want cancel this order?");
+                    if (yesNo == 0) {
+                        mainMenu();
+                    } else {
+                        finishOrder(orderSale);
+                    }
+
+                    break;
+            }
+        }
 
     }
 
@@ -165,12 +335,18 @@ public class Main {
 
     // ALERT: MAKE SURE USER WANT TO QUIT THE PROGRAM
     private static void quit() {
-        int yesNo = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "ALERT", JOptionPane.YES_NO_OPTION);
+        int yesNo = showAlert("Are you sure you want to quit?");
 
-        if (yesNo == 1) {
-            mainMenu();
-        } else {
+        if (yesNo == 0) {
             System.exit(0);
+        } else {
+            mainMenu();
         }
+    }
+
+    private static int showAlert(String message) {
+
+        int yesNo = JOptionPane.showConfirmDialog(null, message, "ALERT", JOptionPane.YES_NO_OPTION);
+        return yesNo;
     }
 }
