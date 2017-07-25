@@ -7,6 +7,7 @@
 
 package Transactions;
 
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class Transaction {
         this.orderID = Transaction.numID;
 
         this.orderDate = new Date();
-        this.requiredDate = null;
-        this.shippedDate = null;
+        this.requiredDate = new Date(); //null
+        this.shippedDate = new Date(); //null
 
         this.status = StatusTransaction.PENDING;
         this.type = type;
@@ -197,7 +198,7 @@ public class Transaction {
     public void generateShippedDate() throws ParseException {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        this.shippedDate = dateFormat.parse("21/12/2012");
+        this.shippedDate = dateFormat.parse("21/07/2017");
     }
 
 
