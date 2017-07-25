@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c393e965-3024-475b-aab7-f4bc893595a6" name="Default" comment="- product package headers">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/data/transactions_buyer.txt" afterPath="$PROJECT_DIR$/data/transactions_purchase.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Main.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Service/LoadManager.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Service/LoadManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Service/SaleHistoryManager.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Service/SaleHistoryManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction$StatusTransaction.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction$StatusTransaction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction$TypeTransaction.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction$TypeTransaction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Transactions/Transaction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/WholesaleJava/Wholesale.class" afterPath="$PROJECT_DIR$/out/production/WholesaleJava/Wholesale.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/buyer.txt" afterPath="$PROJECT_DIR$/data/buyer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/category.txt" afterPath="$PROJECT_DIR$/data/category.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/customer.txt" afterPath="$PROJECT_DIR$/data/customer.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/product.txt" afterPath="$PROJECT_DIR$/data/product.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/stock.txt" afterPath="$PROJECT_DIR$/data/stock.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/transactions_purchase.txt" afterPath="$PROJECT_DIR$/data/transactions_purchase.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/transactions_sale.txt" afterPath="$PROJECT_DIR$/data/transactions_sale.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/AddressManager.java" afterPath="$PROJECT_DIR$/src/Service/AddressManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/BuyerManager.java" afterPath="$PROJECT_DIR$/src/Service/BuyerManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/CategoryManager.java" afterPath="$PROJECT_DIR$/src/Service/CategoryManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/CustomerManager.java" afterPath="$PROJECT_DIR$/src/Service/CustomerManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/LoadManager.java" afterPath="$PROJECT_DIR$/src/Service/LoadManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/ProductManager.java" afterPath="$PROJECT_DIR$/src/Service/ProductManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/StockManager.java" afterPath="$PROJECT_DIR$/src/Service/StockManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Transactions/Purchase.java" afterPath="$PROJECT_DIR$/src/Transactions/Purchase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/SaleHistoryManager.java" afterPath="$PROJECT_DIR$/src/Service/SaleHistoryManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Transactions/Transaction.java" afterPath="$PROJECT_DIR$/src/Transactions/Transaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Wholesale.java" afterPath="$PROJECT_DIR$/src/Wholesale.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,14 +34,90 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wholesale.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Wholesale.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wholesale.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="162" column="22" lean-forward="true" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
+            <state relative-caret-position="1725">
+              <caret line="115" column="25" lean-forward="false" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sale.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Transactions/Sale.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transactions_sale.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/transactions_sale.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="61" lean-forward="true" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transactions_purchase.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/transactions_purchase.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PurchaseHistoryManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/PurchaseHistoryManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1130#1140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Purchase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Transactions/Purchase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Transactions/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaleHistoryManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Service/SaleHistoryManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="143" column="40" lean-forward="true" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1219#1225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,6 +135,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>showMessageDialog</find>
+      <find>generateShippedDate</find>
+      <find>requiredDate</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -98,8 +162,6 @@
         <option value="$PROJECT_DIR$/src/Service/LoadFiles.java" />
         <option value="$PROJECT_DIR$/src/Product/Category.java" />
         <option value="$PROJECT_DIR$/src/Service/ManagerCategory.java" />
-        <option value="$PROJECT_DIR$/src/Transactions/Transaction.java" />
-        <option value="$PROJECT_DIR$/src/Service/SaleHistoryManager.java" />
         <option value="$PROJECT_DIR$/src/Service/BuyerManager.java" />
         <option value="$PROJECT_DIR$/src/Service/AddressManager.java" />
         <option value="$PROJECT_DIR$/src/Service/CategoryManager.java" />
@@ -112,12 +174,14 @@
         <option value="$PROJECT_DIR$/data/stock.txt" />
         <option value="$PROJECT_DIR$/src/Service/LoadManager.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Service/PurchaseHistoryManager.java" />
         <option value="$PROJECT_DIR$/src/Transactions/Purchase.java" />
         <option value="$PROJECT_DIR$/src/Wholesale.java" />
-        <option value="$PROJECT_DIR$/data/transactions_sale.txt" />
         <option value="$PROJECT_DIR$/data/buyer.txt" />
+        <option value="$PROJECT_DIR$/src/Service/SaleHistoryManager.java" />
+        <option value="$PROJECT_DIR$/data/transactions_sale.txt" />
         <option value="$PROJECT_DIR$/data/transactions_purchase.txt" />
+        <option value="$PROJECT_DIR$/src/Transactions/Transaction.java" />
+        <option value="$PROJECT_DIR$/src/Service/PurchaseHistoryManager.java" />
       </list>
     </option>
   </component>
@@ -342,7 +406,7 @@
       <workItem from="1500557738641" duration="5531000" />
       <workItem from="1500571706632" duration="45000" />
       <workItem from="1500645671582" duration="6622000" />
-      <workItem from="1500670077811" duration="18369000" />
+      <workItem from="1500670077811" duration="19511000" />
     </task>
     <task id="LOCAL-00001" summary="- product package done">
       <created>1500499965598</created>
@@ -383,7 +447,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33455000" />
+    <option name="totallyTimeSpent" value="34597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="980" extended-state="0" />
@@ -689,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Transactions/Sale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/BuyerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -771,31 +827,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Transactions/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="196" column="16" lean-forward="false" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/ProductManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="66" column="35" lean-forward="true" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/SaleHistoryManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="170" column="0" lean-forward="true" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1219#1225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -808,53 +845,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/PurchaseHistoryManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="181" column="68" lean-forward="true" selection-start-line="181" selection-start-column="68" selection-end-line="181" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1130#1140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/transactions_purchase.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="62" lean-forward="true" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/transactions_sale.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="63" lean-forward="true" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Transactions/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/People/Buyer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/customer.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -887,11 +881,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wholesale.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="162" column="22" lean-forward="true" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
+        <state relative-caret-position="1725">
+          <caret line="115" column="25" lean-forward="false" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/customer.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Transactions/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="42" column="47" lean-forward="true" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Transactions/Sale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Transactions/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/transactions_sale.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="61" lean-forward="true" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/transactions_purchase.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/PurchaseHistoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1130#1140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/SaleHistoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="143" column="40" lean-forward="true" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1219#1225#0" expanded="true" />
           </folding>
         </state>
       </provider>

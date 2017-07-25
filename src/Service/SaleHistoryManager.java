@@ -146,6 +146,7 @@ public class SaleHistoryManager {
         try{
             dateOrder = formatter.format(sale.getOrderDate());
             dateRequired = formatter.format(sale.getRequiredDate());
+
             dateShipped = formatter.format(sale.getShippedDate());
         }catch (Exception ex ){
             System.out.println(ex);
