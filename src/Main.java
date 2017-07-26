@@ -5,13 +5,11 @@ import Products.Stock;
 import Transactions.DetailTransaction;
 import Transactions.Sale;
 import Transactions.Transaction;
-import com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter;
 
-import javax.swing.JOptionPane;
-import java.text.DateFormat;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Main {
 
@@ -76,7 +74,7 @@ public class Main {
                     startBuy();
                     break;
                 case '2':
-                    showReports();
+                    reportsMenu();
                     break;
                 case '3':
                     loginScreen();
@@ -228,7 +226,7 @@ public class Main {
     }
 
     // 2. REPORTS
-    private static void showReports() {
+    private static void reportsMenu() {
 
         String inputMenu = JOptionPane.showInputDialog("WHOLESALE REPORTS \n\nSelect an option: " +
                 "\n   1. Defaulters list of Customers who has not paid their pending amount" +
@@ -314,12 +312,17 @@ public class Main {
 
     private static void reportListSalePaidAndNot() {
 
-        String showReport = "WHOLESALE - Report 1: Defaulters list of Customers whose has not paid their pending amount: \n\n";
+        String showReport = "Report 1 - List of Customers have not paid \n\n";
+
+        PrintTable table = new PrintTable();
+        table.addLine("ORDER", "CUSTOMER", "AMOUNT", "PAYMENT");
 
         ArrayList<Sale> historySales = wholesale.getHistorySale();
 
-        for (Sale historySale: historySales)
+        for (int i=0; i < historySales.size(); i++)
         {
+            Sale historySale = historySales.get(i);
+
             String orderId = String.valueOf(historySale.getOrderID());
 
             Customer customer = historySale.getCustomer();
@@ -328,16 +331,22 @@ public class Main {
             Double amount = historySale.totalPayment();
             String payment = historySale.isPayment() ? "PAID" : "NOT PAID";
 
-            showReport += orderId +" - "+ customerName +" - "+ amount +" - "+ payment + "\n";
+            table.addLine(orderId, customerName, String.valueOf(amount), payment);
+
         }
 
+        showReport += table.toString();
+
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     private static void reportSaleListOfCustomersPendingAmount() {
 
-        String showReport = "WHOLESALE - Report 2: List of Payment Paid or Pending: \n\n";
+        String showReport = "Report 2: List of Payment Paid or Pending \n\n";
+
+        PrintTable table = new PrintTable();
+        table.addLine("ORDER", "CUSTOMER", "PENDING");
 
         int total = 0;
 
@@ -365,21 +374,27 @@ public class Main {
             if (totalCustomer > 0) {
 
                 String customerId = String.valueOf(cust.getCustomerId());
-                showReport += customerId +" - "+ customerName +" - "+ totalCustomer + "\n";
+                table.addLine(customerId, customerName, String.valueOf(totalCustomer));
+                //showReport += customerId +" - "+ customerName +" - "+ totalCustomer + "\n";
             }
         }
 
         if (total == 0) {
             showReport += "All payments are paid!";
+        } else {
+            showReport += table.toString();
         }
 
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     private static void reportSaleListOfCustomersQuantityTotalAmountPaid() {
 
-        String showReport = "WHOLESALE - Report 3: List of Payment and Quantity of Orders Paid: \n\n";
+        String showReport = "Report 3: List of Payment and Quantity of Orders Paid \n\n";
+
+        PrintTable table = new PrintTable();
+        table.addLine("ID", "CUSTOMER", "QUANTITY", "AMOUNT");
 
         int total = 0;
 
@@ -409,7 +424,8 @@ public class Main {
                 String customerId = String.valueOf(cust.getCustomerId());
                 String orderQty = String.valueOf(customerOrderQty);
 
-                showReport += customerId +" - "+ customerName +" - "+ orderQty + " - " + customerTotalAmount + "\n";
+                table.addLine(customerId, customerName, orderQty, String.valueOf(customerTotalAmount));
+                //showReport += customerId +" - "+ customerName +" - "+ orderQty + " - " + customerTotalAmount + "\n";
             }
         }
 
@@ -417,13 +433,18 @@ public class Main {
             showReport += "No orders with payments!";
         }
 
+        showReport += table.toString();
+
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     private static void reportProductsDeliveryInYear(String year) {
 
-        String showReport = "WHOLESALE - Report 4: Product shipped in 2017: \n\n";
+        String showReport = "Report 4: Product shipped in 2017 \n\n";
+
+        PrintTable table = new PrintTable();
+        table.addLine("ORDER", "PRODUCT", "SHIPPED");
 
         ArrayList<Sale> historySales = wholesale.getHistorySale();
 
@@ -445,18 +466,24 @@ public class Main {
                     Product product = detail.getProduct();
                     String productName = product.getName();
 
-                    showReport += orderId +" - "+ String.valueOf(shippedDate) +" - "+ productName + "\n";
+                    table.addLine(String.valueOf(orderId), productName, String.valueOf(shippedDate));
+                    //showReport += orderId +" - "+ String.valueOf(shippedDate) +" - "+ productName + "\n";
                 }
             }
         }
 
+        showReport += table.toString();
+
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     private static void reportProductQuantityInStock() {
 
-        String showReport = "WHOLESALE - Report 5: Product quantity in Stock: \n\n";
+        String showReport = "Report 5: Product quantity in Stock \n\n";
+
+        PrintTable table = new PrintTable();
+        table.addLine("ID", "PRODUCT", "QUANTITY");
 
         ArrayList<Stock> stocks = wholesale.getStocks();
 
@@ -467,20 +494,25 @@ public class Main {
             String productId = String.valueOf(product.getProductId());
             String productName = product.getName();
 
-            showReport += productId +" - "+ productName + " - " + quantity + "\n";
+            table.addLine(productId, productName, String.valueOf(quantity));
+            //showReport += productId +" - "+ productName + " - " + quantity + "\n";
         }
 
+        showReport += table.toString();
+
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     private static void reportSalesByCities() {
 
-        String showReport = "WHOLESALE - Report 6: Sales by different cities: \n\n";
-        showReport += "CITY                                         TOTAL $\n";
+        String showReport = "Report 6: Sales by different cities \n\n";
 
         String[] cities = {"Toronto", "Quebec", "Vancouver", "Halifax", "Winnipeg"};
         ArrayList<Sale> historySales = wholesale.getHistorySale();
+
+        PrintTable table = new PrintTable();
+        table.addLine("CITY", "TOTAL");
 
         for (String city:cities)
         {
@@ -498,11 +530,14 @@ public class Main {
                 }
             }
 
-            showReport += cityName + " ................................... " + totalPayment + "\n";
+            table.addLine(cityName, String.valueOf(totalPayment));
+            //showReport += cityName + " ................................... " + totalPayment + "\n";
         }
 
+        showReport += table.toString();
+
         JOptionPane.showMessageDialog(null, showReport);
-        mainMenu();
+        reportsMenu();
     }
 
     // ALERT: MAKE SURE USER WANT TO QUIT THE PROGRAM
@@ -518,7 +553,20 @@ public class Main {
 
     private static int showAlert(String message) {
 
-        int yesNo = JOptionPane.showConfirmDialog(null, message, "ALERT", JOptionPane.YES_NO_OPTION);
+        int yesNo = JOptionPane.showConfirmDialog(null, message, "WHOLESALE", JOptionPane.YES_NO_OPTION);
         return yesNo;
+    }
+
+    private static void showReportTable(String title, Object[][] rows, Object[] cols) {
+
+        JTable table = new JTable(rows, cols);
+        JScrollPane panel = new JScrollPane (table);
+        panel.setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
+                title,
+                TitledBorder.CENTER,
+                TitledBorder.TOP));
+
+        JOptionPane.showMessageDialog(null, panel, "WHOLESALE", JOptionPane.INFORMATION_MESSAGE);
+
     }
 }
