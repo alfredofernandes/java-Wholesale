@@ -19,13 +19,7 @@ public class Main {
     public static void main(String[] args) {
         wholesale = new Wholesale();
 
-        loadData();
         loginScreen();
-    }
-
-    private static void loadData(){
-
-
     }
 
     // LOGIN SCREEN
@@ -272,14 +266,13 @@ public class Main {
     // DEFAULTER LIST OF CUSTOMERS WHOSE HAS NOT PAID THEIR PENDING AMOUNT
     private static void report1() {
 
-        reportListSalePaidAndNot();
+        reportSaleListOfCustomersPendingAmount();
     }
 
     // LIST OF PAYMENT PAID OR PENDING
     private static void report2() {
 
-        reportSaleListOfCustomersPendingAmount();
-
+        reportListSalePaidAndNot();
     }
 
     // LIST OF PAYMENT AND QUANTITY OF ORDERS PAID
@@ -375,7 +368,6 @@ public class Main {
 
                 String customerId = String.valueOf(cust.getCustomerId());
                 table.addLine(customerId, customerName, String.valueOf(totalCustomer));
-                //showReport += customerId +" - "+ customerName +" - "+ totalCustomer + "\n";
             }
         }
 
@@ -425,7 +417,6 @@ public class Main {
                 String orderQty = String.valueOf(customerOrderQty);
 
                 table.addLine(customerId, customerName, orderQty, String.valueOf(customerTotalAmount));
-                //showReport += customerId +" - "+ customerName +" - "+ orderQty + " - " + customerTotalAmount + "\n";
             }
         }
 
@@ -467,7 +458,6 @@ public class Main {
                     String productName = product.getName();
 
                     table.addLine(String.valueOf(orderId), productName, String.valueOf(shippedDate));
-                    //showReport += orderId +" - "+ String.valueOf(shippedDate) +" - "+ productName + "\n";
                 }
             }
         }
@@ -495,7 +485,6 @@ public class Main {
             String productName = product.getName();
 
             table.addLine(productId, productName, String.valueOf(quantity));
-            //showReport += productId +" - "+ productName + " - " + quantity + "\n";
         }
 
         showReport += table.toString();
@@ -531,7 +520,6 @@ public class Main {
             }
 
             table.addLine(cityName, String.valueOf(totalPayment));
-            //showReport += cityName + " ................................... " + totalPayment + "\n";
         }
 
         showReport += table.toString();
